@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Tracking Tour</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="./in.css" type="text/css" rel="stylesheet">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+
+    <style>
+        /* Custom CSS for Icons and Animations */
+        .icon-box {
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-box:hover {
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .bi {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .img {
+
+            background-image: url(./images/design.png);
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 2;
+
+        }
+
+        .img::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: aqua;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!--header-->
+    <div class="container-fluid m-0 p-0">
+        <div class="row mx-0 d-flex justify-content-center align-items-center"
+            style="background-color: rgb(49, 48, 48);">
+            <div class="col-md-6 pt-2 pb-2">
+                <span class="text-light mx-5 header_icon fw-bolder"> <i class="bi bi-phone fs-5">
+                    </i>+918471054381,+918527083319</span>
+            </div>
+            <div class="col-md-3"></div>
+
+            <div class="col-md-3 pb-2 pt-2  text-light" style="font-size:1rem;">
+
+
+                <span class="kss_text header_icon"> A product by KSS Chitrakoot</span><span class="kss_logo header_icon"><img
+                        src="./images/logokss.png" width="80rem" alt=""></span>
+
+            </div>
+
+        </div>
+
+
+        <!--Nav-->
+        <nav class="navbar navbar-expand-lg sticky-top navbar-border " style="background-color:white; width: 100%;">
+            <div class="container-fluid">
+
+                <a class="navbar-brand mx-5  fw-bolder" href="#"><img src="./images/logoteam.png" alt=""
+                        class=" img-fluid " id="logo-image" style="height:4rem;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 mx-5">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+                        <!-- 
+                            <li class="nav-item dropdown mx-3">
+                                <a class="nav-link dropdown-toggle fw-bolder" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    File
+                                </a>
+                                <ul class="dropdown-menu ">
+                                    <li><a class="dropdown-item" href="#">Upload File</a></li>
+                                    <li><a class="dropdown-item" href="#">Show Upload File</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"> Download _File</a></li>
+                                </ul>
+                            </li> -->
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active" aria-current="page" href="./services.html">Services</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active" aria-current="page" href="./contact.html">Contact Us</a>
+                        </li>
+
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active" aria-current="page" href="./tour.html">Tour </a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active " aria-current="page" href="./login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--header ended-->
+
+        <div class="img vh-80 d-flex align-items-center m-0 p-0">
+            <div class="container-fluid m-0 p-0">
+                <div class="row m-0 p-0">
+                    <div class="col-sm-12 m-0 p-0">
+                        <!-- Welcome Section -->
+                        <section id="welcome"
+                            class="d-flex  align-items-center vh-80 justify-content-center text-white  text-center"
+                            style=" background-color: rgba(37, 37, 162, 0.719); ">
+                            <div>
+                                <h1 class="display-3 ">Welcome to File Tracking</h1>
+                                <p class="lead">A simple way to manage and track your files</p>
+                                <a href="#registration-process" class="btn btn-light btn-lg mt-4">Start the Tour</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--- end -->
+
+
+        <!-- Step 1: Registration -->
+        <section id="registration-process" class="bg-light text-center">
+            <div class="container">
+                <h2>Step 1: Get credentials from office</h2>
+                <p class="mb-4">Register at our office desk and receive login credentials via email.</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <!-- Office Desk Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-building text-info"></i>
+                        <p>Office Desk</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="mx-5">
+                        <i class="bi bi-arrow-right display-4"></i>
+                    </div>
+                    <!-- User Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-person-plus-fill text-primary"></i>
+                        <p>User Registration</p>
+                    </div>
+
+
+                </div>
+                <a href="#login-process" class="btn btn-primary btn-lg mt-4">Next: Login</a>
+            </div>
+        </section>
+
+        <!-- Step 2: Login -->
+        <section id="login-process" class="bg-secondary text-white text-center">
+            <div class="container">
+                <h2>Step 2: Login</h2>
+                <p class="mb-4">Check your email for login credentials, then log in to the system.</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <!-- Email Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-envelope-check-fill text-warning"></i>
+                        <p>Check Email</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="mx-5">
+                        <i class="bi bi-arrow-right display-4"></i>
+                    </div>
+                    <!-- Login Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-person-check-fill text-light"></i>
+                        <p>Login</p>
+                    </div>
+                </div>
+                <a href="#upload-process" class="btn btn-light btn-lg mt-4">Next: Explore Upload Page</a>
+            </div>
+        </section>
+
+        <!-- Step 3: Explore Upload Page -->
+        <section id="upload-process" class="bg-light text-center">
+            <div class="container">
+                <h2>Step 3: Upload Files</h2>
+                <p class="mb-4">Upload your files and begin tracking them with ease.</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <!-- Upload Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-cloud-upload-fill text-success"></i>
+                        <p>Upload Files</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="mx-5">
+                        <i class="bi bi-arrow-right display-4"></i>
+                    </div>
+                    <!-- File Tracking Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-graph-up-arrow text-info"></i>
+                        <p>Track Files</p>
+                    </div>
+                </div>
+                <a href="#track-files-process" class="btn btn-primary btn-lg mt-4">Next: Track & Resolve Errors</a>
+            </div>
+        </section>
+
+        <!-- Step 4: Track Files and Error Solving -->
+        <section id="track-files-process" class="bg-secondary text-white text-center">
+            <div class="container">
+                <h2>Step 4: Track Files & Solve Errors</h2>
+                <p class="mb-4">Monitor your files' progress and resolve any errors that may occur.</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <!-- Track Progress Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-eye-fill text-light"></i>
+                        <p>Track Progress</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="mx-5">
+                        <i class="bi bi-arrow-right display-4"></i>
+                    </div>
+                    <!-- Error Solving Icon -->
+                    <div class="icon-box">
+                        <i class="bi bi-tools text-warning"></i>
+                        <p>Resolve Errors</p>
+                    </div>
+                </div>
+                <a href="#end-tour" class="btn btn-light btn-lg mt-4">Finish Tour</a>
+            </div>
+        </section>
+<!--dummy section for injection ended-->
+        <!--dummy section for injection ended-->
+        <!--Footer design started-->
+        <div class="row container-fluid m-0 p-0" style="margin-top:-30px;">
+            <footer class="footer-outer text-light pt-5" style="background-color: rgb(19,23,25);">
+                <div class="container d-flex align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label class="footer-heading">
+                                        <a href="#" class="footer-logo"><img src="./images/logo10_3_182129.png"
+                                                class="img-fluid" style="height: 4rem;"></a>
+                                    </label>
+                                    <p>
+                                        File Tracking Website is concern for tracking files update and resolve
+                                        queries
+                                        and
+                                        check level of completion.
+                                    </p>
+                                    <a href="./tour.html" class="readmore">Take tour
+                                        <i class="bi bi-arrow-right" style="color: rgb(240, 237, 237);"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-3 mb-4 border-left">
+                                    <h2 class="footer-heading">Discover</h2>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">File transfer</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">File review</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">Analysis</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">Error solving</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3 mb-4 border-left">
+                                    <h2 class="footer-heading">Quick Links</h2>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">Register</a>
+                                        </li>
+                                        <li>
+                                            <a href="./login.html" class="pt-1 d-block">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="feedback.html" class="pt-1 d-block">Feedback</a>
+                                        </li>
+                                        <li>
+                                            <a href="./contact.html" class="pt-1 d-block">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3 mb-4 border-left">
+                                    <h2 class="footer-heading">Key Role</h2>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">File handling</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">Resource control</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">Project Security</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="pt-1 d-block">Multi-tasking</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3 mb-4 border-left">
+                                    <h2 class="footer-heading">Facility</h2>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="https://www.mykss.in/" class="pt-1 d-block">KSS Company</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://eprogrammers.in/" class="pt-1 d-block">E programmer</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.mykss.in/" class="pt-1 d-block">Organization</a>
+                                        </li>
+                                        <li>
+                                            <span style="font-size: 1.5rem;">
+                                                <a href="https://www.youtube.com/@kamadgirisoftwaresolutions7595" target="_blank"><i class="bi bi-youtube"></i></a>
+                                                &nbsp;
+                                                <a href="https://www.instagram.com/invites/contact/?i=1d7wo0bdqyckz&utm_content=50y7tjr" target="_blank"><i class="bi bi-instagram"></i></a>
+                                                 &nbsp;
+                                                <a href="https://www.facebook.com/kamadgiriSoftware" target="_blank"><i class="bi bi-facebook"></i></a>
+                                                </span>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <p class="text-center">
+                                    Copyright Alert! All right reserved within <br /> Kamadgiri Software Solution
+                                    Private
+                                    limited &copy; 2024
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0 list-unstyled tpc gap-4">
+                                    <a href="#">Terms</a>
+                                    <a href="#">Privacy</a>
+                                    <a href="#">Compliances</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!--Footer design ended-->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

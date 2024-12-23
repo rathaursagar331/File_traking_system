@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device=width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+  <link href="./bootstrap/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
+    integrity="sha512-B46MVOJpI6RBsdcU307elYeStF2JKT87SsHZfRSkjVi4/iZ3912zXi45X5/CBr/GbCyLx6M1GQtTKYRd52Jxgw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="in.css" type="text/css" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet">
+
+  <style>
+    
+
+    textarea {
+      resize: none;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=file],
+    input[type=email],
+    input[type=number],
+    textarea[type=text] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    .add,
+    .im {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=number]:focus,
+    input[type=text]:focus,
+    .add:focus,
+    .sel:focus,
+    .im:focus {
+      background-color: rgb(233, 234, 233);
+      outline: none;
+    }
+    .err
+    {
+        color: red;
+        margin-bottom: 80px;
+    }
+  </style>
+
+<script src="js/jquery.js"></script>
+  <script>
+     $(document).ready(function(){
+      $("#title").focus(); 
+      $("#btnupld").click(function(){
+        var result=true;
+        var Title=$("#title").val();
+        var Filetype=$("#filetype").val();
+        var file=$("#picture").val();
+        var desc=$("#description").val();
+        var user=$("#usertype").val();
+        var filetype=$("#filetypes").val();
+        // removing past eerror messages
+        $(".err").remove();
+        //validdate title
+        if(Title.length==0)
+                {
+                   $("#title").after("<span class='err'>Please enter file title.</span>");
+                   result=false;        
+               }
+              
+        // validate filetype     
+        if(Filetype.length==0)
+                {
+                   $("#filetype").after("<span class='err'>Please choose type of file.</span>");
+                   result=false;        
+               }
+
+        
+               if(filetype.length==0){
+                $("#filetypes").after("<span class='err'> Please selete File type</span><br>")
+               }
+        // validate shared to 
+        if(user.length==0)
+                {
+                   $("#usertype").after("<span class='err'>Please select file shared with.</span>");
+                   result=false;        
+               }
+        // validate file
+        if(file==0)
+        {
+          $("#spfile").after("<span class='err'>Please choose your file.</span><br>");
+          result=false;
+        }
+        else 
+               {
+                  var filename=$("#picture")[0].files[0].name;
+                  var filesizeInKB=$("#picture")[0].files[0].size/1024;
+                  var fileExt=filename.substring(filename.lastIndexOf(".")).toUpperCase();
+                  if(!(fileExt=='.JPG' || fileExt=='.PNG' || fileExt=='.JPEG' || fileExt=='.PDF' || fileExt=='.DOCX'))
+                  {
+                    $("#spfile").after("<span class='err'>Please choose a valid file.</span><br>");
+                    result=false;
+                  }
+                  else if(filesizeInKB>500)
+                  {
+                    $("#spfile").after("<span class='err'>File size is too large.</span><br>");
+                    result=false;
+                  }
+               }
+    
+        // trigger
+            $("#fileattach").click(function(){
+                $("#picture").trigger("click");
+            });
+            $("#picture").change(function(){
+                var fname=$(this).val();
+                fname=fname.substring(fname.lastIndexOf("\\")+1);
+                if(fname.length>18)
+                {
+                   fname=fname.substring(0,10)+".... "+fname.substring(fname.lastIndexOf("."));  
+                }
+                $("#spfile").html("<b>Selected File: </b>"+fname);
+            });
+            // validate description
+            if(desc.length==0)
+                {
+                   $("#description").after("<span class='err'>Please enter your description.</span>");
+                   result=false;        
+               }
+               else
+               {
+              //word count
+                 var count=0,x;
+                for(x of desc)
+             {
+                if(x==' ' || x=='.' || x==',' || x=='?' || x=='!')
+                 count++;
+             }
+             if(count<5)
+             {
+              $("#description").after("<span class='err'>Message must have minimum 5 words.</span>");
+
+                result=false;
+             }
+               }
+        return result;
+      }) 
+    })
+  </script>
+
+</head>
+<div class="row m-0 p-0 ">
+  <div class="col-sm-12 m-0 p-0">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./images/logoteam.png" height="70vh"></a>
+        <h3 class="navbar-text mx-auto me-5 myclass pb-0 hc"
+          style="font-size:40px;font-weight:500; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+          Welcome To Employee Panel
+        </h3>
+        <span class="navbar-text ms-auto me-2"><img src="./images/man.png" height="60vh"></span>
+
+      </div>
+  </div>
+  </nav>
+</div>
+</div><!--logo end-->
+<!--navbar start-->
+<div class="row m-0 p-0 sticky-top bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex " href="./dashboard.html" style="color:white;"><i class="fa-solid fa-home"></i>&nbsp;<span
+          class="first">Dashboard</span> <span class="second">User Dashboard</span> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse fw-bolder" id="navbarNav">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item dropdown mi ">
+            <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDarkDropdownMenuLink"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              User
+            </a>
+            <ul class="dropdown-menu dropdown bg-success" aria-labelledby="navbarDarkDropdownMenuLink">
+              <!-- <li><a class="dropdown-item text-light" href="./adduser.html">Add User</a></li> -->
+              <li><a class="dropdown-item text-light" href="./userProfile.html">User Profile</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mi">
+            <a class="nav-link active" aria-current="page" href="./upload.html" style="color:white;"> Upload</a>
+          </li>
+          <li class="nav-item mi">
+            <a class="nav-link active" aria-current="page" href="./tableShowUpload.html" style="color:white;"> View
+              Files</a>
+          </li>
+          <li class="nav-item mi">
+            <a class="nav-link active " href="./feedback.html" style="color:white;">Feedback</a>
+          </li>
+          <li class="nav-item mi">
+            <a class="nav-link active" href="./login.html" style="color:white;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</div>
+
+
+<div class="container-fluid">
+  
+  <div class="row myclass " style="background:rgb(207, 224, 239);">
+    <div class="col-sm-12 m-0 p-0" style="height:50px;"></div>
+    <div class="row m-0 p-0 ">
+
+      <!--<div class="col-sm-6 d-none d-md-block " >-->
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4 mt-5 d-none d-md-block ">
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+          <h3><i class="bi bi-question-circle me-2" width="24" height="24" role="img" aria-label="Success:">
+              <use xlink:href="#check-circle-fill" />
+            </i>
+            May I Help You?</h3>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <i class="bi bi-arrow-right-circle"></i>&emsp;Step 1: Enter File Details
+
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p>- Uploaded By: Enter Your Name Here.</p>
+                <p>- File description: Give a brief description of a file.</p>
+                <p>- File Type :File related to which department.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <i class="bi bi-arrow-right-circle"></i>&emsp;Step 2: Select File
+
+
+
+
+
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p> - Click "Browse" to choose your file.</p>
+                <p>- Select file from your device.</p>
+                <p>- Click "Upload" to start uploading your file.
+                </p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <i class="bi bi-arrow-right-circle"></i>&emsp;Supported File Formats
+
+
+
+
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p> - Documents (PDF, DOCX, TXT)</p>
+                <p>- Images (JPG, PNG, GIF)</p>
+                <p>- Videos (MP4, AVI, MOV)</p>
+                <p> - Audio (MP3, WAV)</p>
+                <p><b> Additional Tips</b></p>
+
+                <p>- Organize files with tags and folders.</p>
+                <p>- Share files securely with colleagues.</p>
+                <p>- Monitor file activity and access.</p>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                <i class="bi bi-arrow-right-circle"></i>&emsp;What is file Tracking
+              </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p>File tracking refers to the process of monitoring and managing files throughout their lifecycle, from
+                  creation to deletion. It involves tracking file modifications, movements, and access to ensure
+                  security, compliance, and efficiency.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                <i class="bi bi-arrow-right-circle"></i>&emsp;Is my Data Secure
+              </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p>We take data security seriously. Our top priority is protecting your files and ensuring their
+                  confidentiality, integrity, and availability.</p>
+                <p>Additional Security Features</p>
+                <p>1. File Access Logging: Monitor file activity. </p>
+                <p> 2. Real-time Threat Detection: Identify and respond to potential threats. </p>
+                <p> 3. Regular Software Updates: Ensure latest security patches.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                <i class="bi bi-arrow-right-circle"></i>&emsp; How do I upload files?
+
+              </button>
+            </h2>
+            <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p>File Upload Guidelines</p>
+
+                <p>- Maximum file size: 2GB</p>
+                <p>- Allowed file types: [list]</p>
+                <p>- File naming conventions: [guidelines]</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSix">
+                <i class="bi bi-arrow-right-circle"></i>&emsp; GuideLines?
+
+              </button>
+            </h2>
+            <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p>File Upload Guidelines</p>
+
+                <p>- Maximum file size: 2GB</p>
+                <p>- Allowed file types: [list]</p>
+                <p>- File naming conventions: [guidelines]</p>
+                <p><b> Success Message</b></p>
+
+                <p>- File uploaded successfully!</p>
+                <p>- File ID: [unique ID]</p>
+                <p>- View file details</p>
+
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+
+        <div class=" py-3 px-3 " style="background:white;padding-top:20px;padding-bottom:20px;border:2px solid green;">
+          <form action="login.html" method="post" enctype="multipart/form-data" style="min-height: 70vh;">
+            <h2 class=text-center><i class="fa-solid fa-cloud-arrow-up" style="color:green;"></i></h2>
+            <h2 class=" text-center text-dark"><b>Upload File</b></h2>
+            <hr>
+
+            <!-- <label for="name" class="form-label"><b>Uploaded By</b></label>
+            <input type="text" class="form-control im" required placeholder="Enter a  Name" id="name"><br> -->
+
+            <label for="title" class="form-label"><b>Title</b></label>
+            <input type="text" class="form-control im" placeholder="Title/topic" id="title"><br>
+
+
+            <label for="filetype" class="form-label"><b>File Type which department</b></label>
+            <select id="filetype" class="form-select sel im">
+              <option value="">File related by which department</option>
+              <option> HR.Department</option>
+              <option> Training Department</option>
+              <option> Software Department</option>
+              <option> Marketing</option>
+              <option>Others</option>
+            </select>
+            <br>
+            <label for="usertype" class="form-label"><b>Shared To</b></label>
+            <select id="usertype" class="form-select sel im">
+              <option value="">File Share With</option>
+              <option> All</option>
+              <option> Manager</option>
+              <option> Admin</option>
+              <option> Tech Intern</option>
+              <option>Employee</option>
+            </select>
+              <br>
+              <label for="filetypes" class="form-label"><b>Select File type</b></label>
+              <select name="" id="filetypes" class="form-select sel im">
+                <option value="">Select type file</option>
+                <option value="">Doc</option>
+                <option value="">PDF</option>
+                <option value="">Zip</option>
+                <option value="">PPT</option>
+
+
+              </select>
+            <label for="picture" class="form-label"><b>Select File You want to upload </b></label>
+            <img src="images/attech.webp" style="width:28px;height:26px;cursor:pointer;" id="fileattach" />
+            <span id="spfile"></span>
+             <input type="file" id="picture" class="form-control im" style="display:none;" />
+           <br>
+
+            <label for="description" class="form-label"><b>Description</b></label>
+            <textarea id="description" rows="3" placeholder="Provide a brief description of file"
+              class="form-control im"></textarea><br>
+
+
+
+            <hr>
+
+            <center>
+              <input type="submit" id="btnupld" value="Upload" class="btn btn-success">
+            </center>
+
+
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+
+      <div class="row m-0 p-0">
+        <div class="col-sm-12" style="height:50px;"></div>
+      </div>
+    </div>
+    <!--Footer design started-->
+    <div class="row m-0 p-0 pt-2" style=" background-color:rgb(49, 48, 48);">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5">
+        <p class="text-center text-light">
+          &copy; Copyright to Kamadgiri Software Solutions Private</p>
+      </div>
+      <div class="col-sm-5">
+        <p class="text-center text-light">
+          Developedbyed by Kamadgiri Software Solution
+        </p>
+      </div>
+      <div class="col-sm-1"></div>
+
+    </div>
+
+</html>
