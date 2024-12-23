@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    /* Add padding to containers */
+    .container {
+      padding: 16px;
+
+    }
+
+    .im {
+      padding: 16px;
+      border: 2px solid green;
+      background-color: white;
+
+
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password],
+    input[type=file],
+    input[type=email],
+    input[type=number],
+    textarea[type=text] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    .add {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=number]:focus,
+    input[type=text]:focus,
+    .add:focus,
+    .sel:focus {
+      background-color: rgb(233, 234, 233);
+      outline: none;
+    }
+
+
+
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid green;
+      margin-bottom: 25px;
+    }
+    .err{
+      color: red;
+      font-size: bold;
+    }
+  </style>
+
+<script>
+    $(document).ready(function(){
+     $("#btnsave").click(function(){
+       var result=true;
+       var userid, name,email,user,designation,mobno,altermob,Password,Address;
+       userid=$("#userid").val().trim();
+       name=$("#txtname").val().trim();
+      email=$("#txtemail").val().trim();
+      user=$("#ddl").val().trim();
+      designation=$("#ddl1").val().trim();
+      mobno=$("#tmob").val().trim();
+    //   altermob=$("#altmob").val().trim();
+      Password=$("#pass").val().trim();
+    //   Address=$("#txtadd").val().trim();
+      
+      
+          // removing past error messages
+          $(".err").remove();
+                  //validating name
+                  // user Id Validation
+                  if(userid.length==0){
+                    $("#userid").after("<span class='err'> Please enter UserId</span><br>")
+                    result=false
+                  }else if(userid.length<6){
+                    $("#userid").after("<span> User'Id must have 6 digit </span><br> ")
+                    result =false;
+                  }
+         if(name.length==0)
+         {
+            $("#txtname").after("<span class='err'>Please enter your name.</span> <br>");
+            result=false;
+         }
+         else if(name.length<3)
+         {
+            $("#txtname").after("<span class='err'>Please enter a valid name.</span><br>");
+            result=false;
+         }
+         //validate emaill
+         if(email.length==0)
+         {
+          $("#txtemail").after("<span class='err'>Please Enter your Email</span><br>");
+           result=false;
+         }
+         //validate user type
+         if(user.length!=0)
+         {
+            $("#ddl").after("<span class='err'>Please choose your type of user.</span><br>");
+            result=true;
+         }
+         //validate designation
+      
+         if(designation.length!=0)
+         {       
+          $("#ddl1").after("<span class='err'>Please choose your designation.</span><br>");
+            result=true;
+         }
+         //contact
+         if(mobno.length==0)
+         { 
+            $("#tmob").after("<br><span class='err'>Please enter your mobileno.</span><br>");
+            result=false;
+         }
+         else if(mobno.length!=10)
+         {
+            $("#tmob").after("<span class='err'>Mobile no must have exact 10 digits.</span><br>");
+            result=false;
+         }
+         else
+         {
+            var fdigit=parseInt(mobno.charAt(0));
+            if(!(fdigit>=6 && fdigit<=9))
+         {
+            $("#tmob").after("<span class='err'>Invalid mobile number.</span><br>");
+            result=false;
+         }
+         }
+
+         //alternate contact
+      /*   if(altermob.length==0)
+         {
+            
+            $("#altmob").after("<span class='err'>Please enter your Alter mobileno.</span><br>");
+            result=false;
+         }
+         else if(altermob.length!=10)
+         {
+            $("#altmob").after("<span class='err'>Mobile no must have exact 10 digits.</span>");
+            result=false;
+         }
+         else
+         {
+            var fdigit=parseInt(altermob.charAt(0));
+            if(!(fdigit>=6 && fdigit<=9))
+         {
+            $("#altmob").after("<span class='err'>Invalid  mobile number.</span><br>");
+            result=false;
+         }
+         }*/
+
+         //Password
+         if(Password.length==0)
+         {
+          $("#pass").after("<span class='err'>Please Enter your valid password.</span><br>");
+
+         }
+         //Address
+         /*if(Address.length==0)
+        {
+            $("#txtadd").after("<span class='err'>Please enter your permanent Address</span>");
+            result=false;
+        }*/
+
+        if($(".check-box:checked").length==0){
+            $(".cherr").after("<span class='err'>Please  Select one Option</span>")
+            result=false
+
+        }
+        
+
+
+          return result;
+     });
+    });
+  </script>
+
+
+
+    <!-- <link rel="stylesheet" href="css/style1.css"> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="sidebar" class="js-sidebar" style="background-color: #2E2E2E;">
+            <!-- Content For Sidebar -->
+            <div class="h-100">
+                <div class="sidebar-logo bg-color">
+                    <a href="#"><img src="image/logoteam.png" style="height: 3rem; width: auto;" alt=""></a>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Admin panel
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#category" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                            File Category
+                        </a>
+                        <ul id="category" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="addcategory.html" class="sidebar-link">Add File Category</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="showCategory.html" class="sidebar-link">Show File Categories</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#department"
+                            data-bs-toggle="collapse" aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Manage Department
+                        </a>
+                        <ul id="department" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="addDepartment.html" class="sidebar-link">Add Department</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="showDepartment.html" class="sidebar-link">Show Departments</a>
+
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed " data-bs-target="#register" data-bs-toggle="collapse"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-user pe-2"></i>
+                            Add New User
+                        </a>
+                        <ul id="register" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="register.html" class="sidebar-link"> AddUser</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#fileUpload"
+                            data-bs-toggle="collapse" aria-expanded="false"><i class="fa-solid fa-upload pe-2"></i>
+                            Upload File
+                        </a>
+                        <ul id="fileUpload" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="uploadFile.html" class="sidebar-link">Upload File</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="showUploadedFile.html" class="sidebar-link">Show Uploaded Files</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#notification"
+                            data-bs-toggle="collapse" aria-expanded="false"><i class="fa-solid fa-bell pe-2"></i>
+                            Manage Notifications
+                        </a>
+                        <ul id="notification" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <!-- <li class="sidebar-item">
+                                <a href="addNotification.html" class="sidebar-link">Add Notification</a>
+                            </li> -->
+                            <li class="sidebar-item">
+                                <a href="showNotifications.html" class="sidebar-link">Show Notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#feedback" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-comment pe-2"></i>
+                            Manage Feedback
+                        </a>
+                        <ul id="feedback" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="addFeedback.html" class="sidebar-link">Add Feedback</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="showFeedback.html" class="sidebar-link">Show Feedback</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#errorSolution"
+                            data-bs-toggle="collapse" aria-expanded="false"><i
+                                class="fa-solid fa-triangle-exclamation pe-2"></i>
+                            Error Solutions
+                        </a>
+                        <ul id="errorSolution" class="sidebar-dropdown list-unstyled collapse"
+                            data-bs-parent="#sidebar">
+                            <!-- <li class="sidebar-item">
+                                <a href="addErrorSolution.html" class="sidebar-link">Add Error Solution</a>
+                            </li> -->
+                            <li class="sidebar-item">
+                                <a href="errorSolution.html" class="sidebar-link">View Errors</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-header">
+                        Account Management
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#loginInfo" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-lock pe-2"></i>
+                            Manage Login Information
+                        </a>
+                        <ul id="loginInfo" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="showLoginInfo.html" class="sidebar-link">Show Login Info</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="changePassword.html" class="sidebar-link">
+                            <i class="fa-solid fa-key pe-2"></i>
+                            Change Password
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="fa-solid fa-right-from-bracket pe-2"></i>
+                            Logout
+                        </a>
+                    </li>
+                    <!--                     
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-share-nodes pe-2"></i>
+                            Multi Dropdown
+                        </a>
+                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link collapsed" data-bs-target="#level-1"
+                                    data-bs-toggle="collapse" aria-expanded="false">Level 1</a>
+                                <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
+                                    <li class="sidebar-item">
+                                        <a href="#" class="sidebar-link">Level 1.1</a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="#" class="sidebar-link">Level 1.2</a>
+                                    </li>
+                                </ul>+++++++++++++++++++++
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+        </aside>
+
+
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <button class="btn" id="sidebar-toggle" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse navbar">
+                    <div class="text-center mx-auto">
+                        <span>File Tracking System Powered by KSS Chitrakoot</span>
+                    </div>
+
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <img src="image/profile.jpg" class="avatar img-fluid rounded" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="#" class="dropdown-item">Profile</a>
+                                <a href="#" class="dropdown-item">Setting</a>
+                                <a href="#" class="dropdown-item">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+            </nav>
+
+
+            <div class="h-100 container-fluid pt-2" style="background-color: #F7F7F7;">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form  >
+                            <div class="container im">
+                                <h2 class="text-dark text-center">Register</h2>
+                                <hr>
+                        
+                                <div class="row">
+                                    <!-- Left Column -->
+                                    <div class="col-md-6">
+                                        <b class="text-dark"> User ID</b>
+                                        <input type="text" placeholder="Please enter the User ID" id="userid" class="form-control text-dark mb-3">
+                                        <b class="text-dark">Name</b>
+                                        <input type="text" placeholder="Enter Name" name="name" id="txtname" class="form-control text-dark mb-3">
+                                        
+                                        <b class="text-dark">Email</b>
+                                        <input type="email" placeholder="Enter Email" name="temail" id="txtemail" class="form-control text-dark mb-3">
+                                        
+                                        <b class="text-dark">Type of User/Role</b>
+                                        <select class="form-select mb-3 text-dark" aria-label="User type" id="ddl" name="user_type">
+                                            <option selected>Select user</option>
+                                            <option value="1">Staff</option>
+                                            <option value="2">Agent</option>
+                                            <option value="3">Accountant</option>
+                                            <option value="4">Sub Admin</option>
+                                        </select>
+            
+                                        <b class="text-dark">Designation</b>
+                                        <select class="form-select mb-3 text-dark" aria-label="Designation" id="ddl1" name="designation">
+                                            <option selected>Select Designation</option>
+                                            <option value="1">Senior Software Developer</option>
+                                            <option value="2">Junior Software Developer</option>
+                                            <option value="3">Tech Intern</option>
+                                            <option value="4">Employee</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- Right Column -->
+                                    <div class="col-md-6">
+                                        <label class="text-dark"><b>Contact</b></label>
+                                        <input type="number" class="form-control mb-3 text-dark" id="tmob" placeholder="Enter Mobile number" name="contact">
+                                        
+                                        <!-- <label><b class="text-dark">Alternate Contact</b></label>
+                                        <input type="number" class="form-control mb-3 text-dark" id="altmob" placeholder="Enter alternate Mobile number" name="alt_contact">
+             -->
+                                        <label><b class="text-dark">Password</b></label>
+                                        <input type="password" placeholder="Enter Password" id="pass" class="form-control mb-3 text-dark" name="password">
+            
+                                        <!-- <label><b class="text-dark">Address</b></label>
+                                        <textarea class="form-control mb-3 bg-light text-dark" id="txtadd" rows="3" name="address"></textarea> -->
+
+                                        <label for="text-dark "><b>Please Select  </b></label>
+                                        <div class="form-check ">
+                                            <input class="form-check-input check-box" type="checkbox" name="fileOption" value="read" id="readFile">
+                                            <label class="form-check-label text-dark" for="readFile">
+                                              Read File
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input check-box" type="checkbox" name="fileOption" value="upload" id="uploadFile">
+                                            <label class="form-check-label text-dark" for="uploadFile">
+                                              Upload File
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input check-box" type="checkbox" name="fileOption" value="download" id="download">
+                                            <label class="form-check-label text-dark" for="download">
+                                              Download
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input check-box" type="checkbox" name="fileOption" value="delete" id="delete">
+                                            <label class="form-check-label text-dark" for="delete">
+                                              Delete
+                                            </label>
+                                          </div>
+                                          <div class="form-check cherr ">
+                                            <input class="form-check-input check-box" type="checkbox" name="fileOption" value="edit" id="edit">
+                                            <label class="form-check-label text-dark" for="edit">
+                                              Edit
+                                            </label>
+                                          </div>
+                                    </div>
+                                </div>
+            
+                                <hr>
+                                <div class="text-center">
+                                    <input type="button" class="btn btn-success" value="Submit" id="btnsave">
+                                    <input type="reset" class="btn btn-secondary">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+
+            <!--here you will be put our main code -->
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
+    </div>
+    </div>
+    
+    <div class="row m-0 p-0 pt-2" style=" background-color:rgb(49, 48, 48);">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+            <p class="text-center text-light">
+                &copy; Copyright to Kamadgiri Software Solutions Private</p>
+        </div>
+        <div class="col-sm-5">
+            <p class="text-center text-light">
+                Developedbyed by Kamadgiri Software Solution
+            </p>
+        </div>
+        <div class="col-sm-1"></div>
+
+    </div>
+</body>
+
+</html>

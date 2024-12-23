@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device=width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link href="in.css" type="text/css" rel="stylesheet">
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <script src="js/jquery.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    /* Add padding to containers */
+    .container {
+      padding: 16px;
+
+    }
+
+    .im {
+      padding: 16px;
+      border: 2px solid green;
+      background-color: white;
+
+
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password],
+    input[type=file],
+    input[type=email],
+    input[type=number],
+    textarea[type=text] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    .add {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=number]:focus,
+    input[type=text]:focus,
+    .add:focus,
+    .sel:focus {
+      background-color: rgb(233, 234, 233);
+      outline: none;
+    }
+
+
+
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid green;
+      margin-bottom: 25px;
+    }
+    .err{
+      color: red;
+      font-size: bold;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+     $("#btnsave").click(function(){
+       var result=true;
+       var name,email,user,designation,mobno,altermob,Password,Address;
+       name=$("#txtname").val().trim();
+      email=$("#txtemail").val().trim();
+      user=$("#ddl").val().trim();
+      designation=$("#ddl1").val().trim();
+      mobno=$("#tmob").val().trim();
+      altermob=$("#altmob").val().trim();
+      Password=$("#pass").val().trim();
+      Address=$("#txtadd").val().trim();
+      
+      
+          // removing past error messages
+          $(".err").remove();
+                  //validating name
+         if(name.length==0)
+         {
+            $("#txtname").after("<span class='err'>Please enter your name.</span>");
+            result=false;
+         }
+         else if(name.length<3)
+         {
+            $("#txtname").after("<span class='err'>Please enter a valid name.</span>");
+            result=false;
+         }
+         //validate emaill
+         if(email.length==0)
+         {
+          $("#txtemail").after("<span class='err'>Please Enter your Email</span><br>");
+           result=false;
+         }
+         //validate user type
+         if(user.length!=0)
+         {
+            $("#ddl").after("<span class='err'>Please choose your type of user.</span><br>");
+            result=true;
+         }
+         //validate designation
+      
+         if(designation.length!=0)
+         {       
+          $("#ddl1").after("<span class='err'>Please choose your designation.</span><br>");
+            result=true;
+         }
+         //contact
+         if(mobno.length==0)
+         { 
+            $("#tmob").after("<br><span class='err'>Please enter your mobileno.</span><br>");
+            result=false;
+         }
+         else if(mobno.length!=10)
+         {
+            $("#tmob").after("<span class='err'>Mobile no must have exact 10 digits.</span><br>");
+            result=false;
+         }
+         else
+         {
+            var fdigit=parseInt(mobno.charAt(0));
+            if(!(fdigit>=6 && fdigit<=9))
+         {
+            $("#tmob").after("<span class='err'>Invalid mobile number.</span><br>");
+            result=false;
+         }
+         }
+
+         //alternate contact
+         if(altermob.length==0)
+         {
+            
+            $("#altmob").after("<span class='err'>Please enter your Alter mobileno.</span><br>");
+            result=false;
+         }
+         else if(altermob.length!=10)
+         {
+            $("#altmob").after("<span class='err'>Mobile no must have exact 10 digits.</span>");
+            result=false;
+         }
+         else
+         {
+            var fdigit=parseInt(altermob.charAt(0));
+            if(!(fdigit>=6 && fdigit<=9))
+         {
+            $("#altmob").after("<span class='err'>Invalid  mobile number.</span><br>");
+            result=false;
+         }
+         }
+
+         //Password
+         if(Password.length==0)
+         {
+          $("#pass").after("<span class='err'>Please Enter your valid password.</span><br>");
+
+         }
+         //Address
+         if(Address.length==0)
+        {
+            $("#txtadd").after("<span class='err'>Please enter your permanent Address</span>");
+            result=false;
+        }
+          return result;
+     });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="row m-0 p-0 ">
+    <div class="col-sm-12 m-0 p-0">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="./images/logoteam.png" height="70vh"></a>
+          <h3 class="navbar-text mx-auto me-5 myclass pb-0 hc"
+            style="font-size:40px;font-weight:500; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            Welcome To Employee Panel
+          </h3>
+          <span class="navbar-text ms-auto me-2"><img src="./images/man.png" height="60vh"></span>
+
+        </div>
+    </div>
+    </nav>
+  </div>
+  </div><!--logo end-->
+  <!--navbar start-->
+  <div class="row m-0 p-0 sticky-top bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex " href="./dashboard.html" style="color:white;"><i
+            class="fa-solid fa-home"></i>&nbsp;<span class="first">Dashboard</span> <span class="second">User
+            Dashboard</span> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse fw-bolder" id="navbarNav">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item dropdown mi ">
+              <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDarkDropdownMenuLink"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                User
+              </a>
+              <ul class="dropdown-menu dropdown bg-success" aria-labelledby="navbarDarkDropdownMenuLink">
+                <!-- <li><a class="dropdown-item text-light" href="./adduser.html">Add User</a></li> -->
+                <li><a class="dropdown-item text-light" href="./userProfile.html">User Profile</a></li>
+              </ul>
+            </li>
+            <li class="nav-item mi">
+              <a class="nav-link active" aria-current="page" href="./upload.html" style="color:white;"> Upload</a>
+            </li>
+            <li class="nav-item mi">
+              <a class="nav-link active" aria-current="page" href="./tableShowUpload.html" style="color:white;"> View
+                Files</a>
+            </li>
+            <li class="nav-item mi">
+              <a class="nav-link active " href="./feedback.html" style="color:white;">Feedback</a>
+            </li>
+            <li class="nav-item mi">
+              <a class="nav-link active" href="./login.html" style="color:white;">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+  <div class="row m-0 p-0" style="background-color:rgb(225, 239, 252)">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+
+      <form action="t1.php" method="post">
+
+        <div class="container im">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+          <b>Name</b><input type="text" placeholder="Enter Name" name="name" id="txtname" class="form-control"><br>
+
+          <b>Email</b><input type="email" placeholder="Enter Email" name="temail" id="txtemail" 
+            class="form-control"><br>
+
+
+          <b>Type of User</b><br>
+          <select class="form-select sel" aria-label="Default select example" id="ddl">
+            <option selected>Select user</option>
+            <option value="1">Staff</option>
+            <option value="2">Agent</option>
+            <option value="3">Accountant</option>
+            <option value="4">Sub Admin</option>
+          </select>
+
+          <b>Designation</b><br>
+          <select class="form-select sel" aria-label="Default select example" id="ddl1"><br>
+            
+            <option selected>Select Designation</option>
+            <option value="1">Senior Software Developer</option>
+            <option value="2">Junior Software Developer</option>
+            <option value="3">Tech Intern</option>
+            <option value="4">Employee</option>
+          </select>
+
+          <label ><b>Contact</b></label><br>
+          <input type="number" class="form-control" id="tmob" placeholder="Enter Mobile number">
+
+          <label><b>Alternate Contact</b></label><br>
+          <input type="number" class="form-control" id="altmob" placeholder="Enter alter Mobile number">
+
+
+          <label><b>Password</b></label><br>
+          <input type="password" placeholder="Enter Password" id="pass">
+          <label><b>Address</b></label><br>
+          <textarea class="form-control add" id="txtadd" rows="3"></textarea>
+          <hr>
+
+
+          <center>
+            <input type="button" class="btn btn-success" value="submit" id="btnsave">
+            <input type="reset" class="btn btn-secondary">
+          </center>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+
+
+
+  </div>
+  <!--Footer design started-->
+  <div class="row m-0 p-0 pt-2" style=" background-color:rgb(49, 48, 48);">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5">
+      <p class="text-center text-light">
+        &copy; Copyright to Kamadgiri Software Solutions Private</p>
+    </div>
+    <div class="col-sm-5">
+      <p class="text-center text-light">
+        Developed by Kamadgiri Software Solution
+      </p>
+    </div>
+    <div class="col-sm-1"></div>
+
+  </div>
+</div>
+
+</body>
+
+</html>

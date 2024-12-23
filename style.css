@@ -1,0 +1,451 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: poppins, arial;
+
+}
+
+.hc {
+    color: rgb(8, 73, 8);
+}
+
+.hovwv:hover {
+    color: black;
+    box-shadow: 0px 2px 3px grey;
+}
+
+/* css for index page started */
+/* header css started*/
+
+.navbar-nav .nav-item .nav-link {
+
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* nav:hover */
+.navbar-nav .nav-item .nav-link:hover {
+    color: green;
+    border-bottom: 1px solid;
+    transition: all 0.3s ease;
+}
+
+@media (max-width:600px) {
+
+    .navbar #logo-image {
+
+        margin-left: -30px;
+
+    }
+}
+
+@media (max-width:600px) {
+
+    .navbar #logo-image {
+
+        margin-left: -30px;
+
+    }
+}
+
+/* header css ended*/
+/*index page css started*/
+.navbar-nav .nav-item .nav-link {
+
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* nav:hover */
+.navbar-nav .nav-item .nav-link:hover {
+    color: green;
+    border-bottom: 1px solid;
+    transition: all 0.3s ease;
+}
+
+@media (max-width:600px) {
+
+    .navbar #logo-image {
+
+        margin-left: -30px;
+
+    }
+
+    #hero .hero-image {
+        height: 20rem;
+        width: 100%;
+
+    }
+
+
+    #hero .hero-text {
+        margin-left: 4px;
+        font-size: 3rem;
+        padding-top: 15%;
+        color: rgb(1, 90, 1);
+    }
+
+}
+
+@media (max-width:750px) {
+    .icon {
+        margin-left: 0%;
+    }
+
+    .visitor-data {
+        margin-left: 0%;
+    }
+}
+
+.icon :hover {
+    color: green;
+    opacity: 9.0;
+
+
+}
+
+@media (max-width:1100px) {
+    #hero .hero-text {
+        margin-left: 5%;
+        padding-top: 0%;
+
+    }
+}
+
+.card_2 {
+    height: 15vh;
+    width: 95%;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px dashed green;
+    display: flex;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+
+}
+
+@media (max-width:991px) {
+    .card_2 {
+        margin-left: 10%;
+        width: 100%;
+    }
+   
+}
+
+
+@media (max-width:765px) {
+    .card_2 {
+        width:100%;
+        margin-left: 0%;
+        height:90px;
+    }
+    .card_2 h2{
+        margin-top: 10px;
+    }
+        .header_icon {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        .Watch {
+            margin-left: 30%;
+        }
+       .kss_logo{
+        display:block;
+       }
+       .kss_text{
+        display: none;
+        
+       }
+    }
+
+
+
+.card_2 {
+    transition: all ease-in-out 0.3s;
+}
+
+.card_2:hover {
+    transform: translatey(-20px);
+}
+
+.card .card-title {
+    font-size: 2rem;
+    color: blue;
+}
+
+.card .card-text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: green;
+}
+
+.card .card-text-num {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.featured i {
+    font-size: 50px;
+    margin-top: 13px;
+    color: rgb(1, 90, 1);
+    ;
+}
+
+.featured h2 {
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.animated {
+    position: relative;
+    animation: mymove 2s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes mymove {
+    0% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.animated {
+    animation: mymove 2s ease-in-out infinite alternate-reverse both;
+}
+
+.feedback-card {
+    border: 1px solid #96c5e0;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 600px;
+    /* Control the max width of the card */
+}
+
+.star-rating {
+    color: gold;
+    font-size: 1.5em;
+    /* Larger star rating */
+}
+
+.carousel-item {
+    height: auto;
+    /* Automatic height based on content */
+}
+
+.carousel {
+    margin: 20px;
+    /* Add some margin around the carousel */
+}
+
+.feedbg {
+    background-color: #bbb9b9;
+    border-radius: 15px;
+}
+
+.feeddatabg {
+    background-color: white;
+}
+
+/*index page css ended*/
+/* footer css started*/
+.border-left {
+    border-left: 1px solid #6e6e6e;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(180, 176, 178);
+    font-family: poppins, arial;
+}
+
+a:hover {
+    color: white;
+}
+
+.footer-heading {
+    font-family: poppins, arial;
+    font-size: 18px;
+    opacity: 1;
+}
+
+.tpc {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: end;
+    justify-content: last baseline;
+    padding-top: 3%;
+
+}
+
+.readmore {
+    color: rgb(187, 163, 128);
+    font-size: 15px;
+}
+
+/* footer css ended */
+
+/* css for index page ended */
+
+/* css for services page started */
+.service-card {
+    border: 1px solid #e3e6f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #007bff;
+}
+
+.feature-card {
+    border: 1px solid #e3e6f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    background-color: #f8f9fa;
+}
+
+.feature-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.navbar-border {
+    border-bottom: 2px solid rgb(43, 43, 43);
+}
+
+/* css for services page started */
+
+/* css for login page started */
+.otpd{
+    outline: 1px solid rgb(67, 66, 66);
+    appearance: none;
+    clear: pattern;
+
+}
+.otpd::-webkit-inner-spin-button
+{
+   -webkit-appearance: none;
+}
+/* css for register page started */
+/* Add padding to containers */
+.container {
+    padding: 16px;
+
+}
+
+.im {
+    padding: 16px;
+    border: 2px solid green;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 2px 3px rgb(68, 87, 68);
+
+
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password],
+input[type=file],
+input[type=email],
+input[type=number] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=file] input[type=email] {
+    background-color: rgb(234, 233, 233);
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid green;
+    margin-bottom: 25px;
+}
+
+
+/*css for login page*/
+.sign-in {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-family: poppins, arial;
+    text-align: center;
+
+
+}
+
+/*Table show css started*/
+
+.navbar-toggler:focus {
+    outline: 0;
+    box-shadow: none;
+    border-width: 0;
+  }
+
+  
+  @media only screen and (max-width: 663px) {
+    .myclass {
+      display: none;
+    }
+
+    .first {
+      display: none;
+    }
+
+    .second {
+      display: block !important;
+    }
+
+  }
+
+  .second {
+    display: none;
+  }
+
+
+
+  .hc {
+    color: rgb(8, 73, 8);
+  }
+
+  .hovwv {
+    color: black;
+    box-shadow: 0px 3px 4px green;
+  }
+
+  /*Colour for dropdown in admin */
+.lic:hover{
+    color: black;
+    background-color: red;
+}

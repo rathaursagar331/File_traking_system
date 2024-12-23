@@ -1,0 +1,45 @@
+/* Overall Background */
+body {
+    background: linear-gradient(135deg, #2a2a72, #009ffd);
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #1f1f2e;
+    color: #a0a0a0;
+    
+}
+#sidebar .sidebar-link {
+    color: #a0a0a0;
+    transition: color 0.3s;
+}
+#sidebar .sidebar-link:hover, #sidebar .sidebar-link:focus, #sidebar .sidebar-item.active .sidebar-link {
+    color: #00B2A9;
+    background-color: rgba(57, 102, 45, 0.566);
+}
+
+/* Top Navigation Bar */
+nav.navbar {
+    background: linear-gradient(135deg, #232526, #414345);
+}
+nav .nav-icon img.avatar {
+    border: 2px solid #009ffd;
+}
+
+/* Button and Link Accent */
+.btn, .sidebar-link a, .navbar-nav .nav-item a.dropdown-item {
+    color: #ff6f61;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn:hover, .sidebar-link:hover a, .navbar-nav .nav-item a.dropdown-item:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6f61, #ff937f);
+}
+
+/* Sidebar Headers */
+.sidebar-header {
+    color: #ffffff;
+    font-weight: bold;
+}
